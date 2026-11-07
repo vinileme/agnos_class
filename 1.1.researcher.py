@@ -1,0 +1,16 @@
+from agno.agent import Agent, agent    
+from agno.tools.tavily import TavilyTools
+from agno.models.groq import Groq
+
+from dotenv import load_dotenv
+
+load_dotenv()
+
+agent = Agent(
+    model=Groq(id="openai/gpt-oss-120b"),
+    tools=[TavilyTools()],
+    debug_mode=True
+)
+
+agent.print_response("Use suas ferramentas para pesquisar a temperatura de hoje em São Paulo")
+
